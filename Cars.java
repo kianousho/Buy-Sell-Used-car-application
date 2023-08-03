@@ -1,5 +1,3 @@
-package CarProject;
-
 public abstract class Cars {
     private String make;
     private String vinNumber;
@@ -87,12 +85,18 @@ public abstract class Cars {
     }
 
     public String toString(){
-        return "Make: " + make +
-        "Model: " + model +
-        "Price : " + price +
-        "VIN: " + vinNumber +
-        "Year: " + year + 
-        "Mileage: " + mileage +
-        "";
+        return "Make: " + getMake() + ", "+
+        "Model: " + getModel() + ", "+
+        "Price : " + getPrice() + ", "+
+        "VIN: " + getVinNumber() + ", "+
+        "Year: " + getYear() + ", "+
+        "Mileage: " + getMileage();
+    }
+
+    /* Create method to parse each car into an object of cars to create an ArrayList  */
+    public Cars parseCar(String values){
+        Object carObject = (Object)values;
+        Cars newCar = (Cars)carObject;
+        return newCar;
     }
 }
