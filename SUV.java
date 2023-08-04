@@ -1,5 +1,3 @@
-package CarProject;
-
 public class SUV extends Cars{
     private boolean slidingDoors;
     private String cargoSpaceSize;
@@ -34,6 +32,12 @@ public class SUV extends Cars{
 
     public String getEntertainmentSystem(){
         return entertainmentSystem;
+    }
+
+    public String toString(){
+        return super.toString() + ", Sliding doors:  " + getSlidingDoors() + 
+        ", Cargo space: " + getCargoSpaceSize() + 
+        ", Entertainment system: " + getEntertainmentSystem() + "\n";
     }
 }
 
