@@ -1,5 +1,3 @@
-package CarProject;
-
 public class MidSizeCars extends Cars{
     private boolean coupe;
     private boolean convertible;
@@ -38,6 +36,6 @@ public class MidSizeCars extends Cars{
     }
     
     public String toString(){
-        return super.toString() + "Coupe: " + coupe + "Convertible: " + convertible + "Doors: " + doorNum;
+        return super.toString() + ", Coupe: " + getCoupe() + ", Convertible: " + getConvertible() + ", Doors: " + doorNum();
     }
 }
