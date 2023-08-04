@@ -1,5 +1,3 @@
-package CarProject;
-
 public class Truck extends Cars{
     private boolean hardTopCanopy;
     private String size;
@@ -46,6 +44,13 @@ public class Truck extends Cars{
     
     public boolean getOffRoad(){
         return offRoad;
+    }
+
+    public String toString(){
+        return super.toString() + "Hard top: " + getHardTopCanopy() + 
+        ", Truck size: " + getSize() + 
+        ", Frame type: " + getFrame() + 
+        ", Off road: " + getOffRoad() + "\n";
     }
 }
 
