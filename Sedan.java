@@ -1,4 +1,3 @@
-package CarProject;
 public class Sedan extends MidSizeCars {
     private boolean sportsCar;
     private String trunkSize;
@@ -28,6 +27,11 @@ public class Sedan extends MidSizeCars {
     // Setter for trunkSize
     public void setTrunkSize(String trunkSize) {
         this.trunkSize = trunkSize;
+    }
+
+    public String toString(){
+        return super.toString() + ", Sports Car: " + isSportsCar() + 
+        ", Trunk size: " + getTrunkSize();
     }
 
 }
