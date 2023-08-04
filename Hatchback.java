@@ -1,5 +1,3 @@
-package CarProject;
-
 public class Hatchback extends MidSizeCars{
     // Sub-compact or compact
     private String size;
@@ -21,6 +19,6 @@ public class Hatchback extends MidSizeCars{
     }
 
     public String toString(){
-        return super.toString() + "Size: " + size;
+        return super.toString() + ", Car Size: " + size;
     }
 }
