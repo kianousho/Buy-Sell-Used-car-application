@@ -2,6 +2,7 @@ public class MidSizeCars extends Cars{
     private boolean coupe;
     private boolean convertible;
     private int doorNum;
+    
 
     public MidSizeCars(String make, String vinNumber, String model, double price,
         int year, double mileage, boolean coupe, boolean convertible, int doorNum){

@@ -1,12 +1,16 @@
-public abstract class Cars {
+import java.io.Serializable;
+
+public class Cars implements Serializable {
     private String make;
     private String vinNumber;
     private String model;
     private double price;
     private int year;
     private double mileage;
+    // private String bodyType;
 
     public Cars(String make, String vinNumber, String model, double price, int year, double mileage) {
+        // this.bodyType = bodyType;
         this.make = make;
         this.vinNumber = vinNumber;
         this.model = model;
