@@ -1,9 +1,33 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
-public class TruckAddController extends SellCarController{
-    
+public class SUVAddController extends SellCarController{
+
+    @FXML
+    private RadioButton cargolarge;
+
+    @FXML
+    private RadioButton cargomedium;
+
+    @FXML
+    private RadioButton cargosmall;
+
+    @FXML
+    private RadioButton slidingno;
+
+    @FXML
+    private RadioButton slidingyes;
+
+    @FXML
+    private TextField textEntertainment;
+
+    @FXML
+    private Label txtValidate;
+
     double carKM = Double.parseDouble(txtCarKM.getText());
     String carMake = txtCarMake.getText();
     String carModel = txtCarModel.getText();
@@ -40,41 +64,30 @@ public class TruckAddController extends SellCarController{
 
     @FXML
     void addCar(ActionEvent event) {
-        Truck userAdd = new Truck(carMake, carVin, carModel, carPrice, carYear, carKM, hardtop(), truckSize(), frame(), offRoad());
+        SUV userAdd = new SUV(carMake, carVin, carModel, carPrice, carYear, carKM, slidingDoors(), entertainment(), cargo());
         carsList.add(userAdd);
     }
 
-    public boolean hardtop(){
-        if(hardtopyes.isSelected()){
+    public boolean slidingDoors(){
+        if(slidingyes.isSelected()){
             return true;
         } else {
             return false;
         }
     }
 
-    public String truckSize(){
-        if(trucksmall.isSelected()){
+    public String entertainment(){
+        return textEntertainment.getText();
+    }
+
+    public String cargo(){
+        if(cargosmall.isSelected()){
             return "Small";
-        } else if(truckmedium.isSelected()){
+        }else if(cargomedium.isSelected()){
             return "Medium";
-        } else{
+        } else {
             return "Large";
         }
     }
 
-    public String frame(){
-        if(bodyonframe.isSelected()){
-            return "Body on Frame";
-        } else {
-            return "Unibody";
-        }
-    }
-
-    public boolean offRoad(){
-        if(offyes.isSelected()){
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

@@ -1,11 +1,8 @@
 import java.io.IOException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.*;
@@ -16,9 +13,6 @@ public class SellCarController extends CarsData{
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    ObservableList<String> cbBodyTypeList = FXCollections.observableArrayList("Sedan", "Hatchback",
-        "Truck", "SUV");
 
     @FXML
     protected Button btnNextPage;
@@ -55,6 +49,10 @@ public class SellCarController extends CarsData{
 
     @FXML
     void btnNextPage(ActionEvent event) throws IOException {
+        /*TODO: These are commented out because they generate the NullPointerException
+        and idk how to deal with. You'll see they're also commented out of the other controllers
+        and idk how to get the other controllers to look at the same data or have them communicate the same variables with each other.
+        */ 
         // double carKM = Double.parseDouble(txtCarKM.getText());
         // String carMake = txtCarMake.getText();
         // String carModel = txtCarModel.getText();

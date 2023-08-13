@@ -6,18 +6,12 @@ import javafx.scene.control.TextField;
 
 public class SedanAddController extends SellCarController{
 
-    /* double carKM;
-    String carMake;
-    String carModel;
-    double carPrice;
-    String carVin;
-    int carYear; */
-    // double carKM = Double.parseDouble(txtCarKM.getText());
-    // String carMake = txtCarMake.getText();
-    // String carModel = txtCarModel.getText();
-    // double carPrice = Double.parseDouble(txtCarPrice.getText());
-    // String carVin = txtCarVin.getText();
-    // int carYear = Integer.parseInt(txtCarYear.getText());
+    double carKM = Double.parseDouble(txtCarKM.getText());
+    String carMake = txtCarMake.getText();
+    String carModel = txtCarModel.getText();
+    double carPrice = Double.parseDouble(txtCarPrice.getText());
+    String carVin = txtCarVin.getText();
+    int carYear = Integer.parseInt(txtCarYear.getText());
 
     @FXML
     private RadioButton coupeyes;
@@ -54,6 +48,7 @@ public class SedanAddController extends SellCarController{
 
     @FXML
     void addCar(ActionEvent event) {
+        // Even when making the variables from SellCarContoller protected, these data members are null. 
         Sedan sedanUser = new Sedan(txtCarMake.getText(), txtCarVin.getText(), txtCarModel.getText(), Double.parseDouble(txtCarPrice.getText()), Integer.parseInt(txtCarYear.getText()), Double.parseDouble(txtCarKM.getText()), sedCoupe(), sedConv(), sedDoorNum(), sedSports(), sedTrunk());
         carsList.add(sedanUser);
         txtValidate.setText("Sedan listed for Sale!");
