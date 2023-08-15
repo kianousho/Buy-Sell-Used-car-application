@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -48,10 +49,13 @@
       <TextField fx:id="txtCarYear" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
-            <RadioButton fx:id="sedan" mnemonicParsing="false" prefWidth="100.0" text="Sedan" />
-            <RadioButton fx:id="hatchback" mnemonicParsing="false" prefHeight="17.0" prefWidth="117.0" text="Hatchback" />
-            <RadioButton fx:id="truck" mnemonicParsing="false" prefWidth="100.0" text="Truck" />
-            <RadioButton fx:id="SUV" mnemonicParsing="false" prefWidth="100.0" text="SUV" />
+            <RadioButton fx:id="sedan" mnemonicParsing="false" prefWidth="100.0" text="Sedan">
+               <toggleGroup>
+                  <ToggleGroup fx:id="bodyType" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="hatchback" mnemonicParsing="false" prefHeight="17.0" prefWidth="117.0" text="Hatchback" toggleGroup="$bodyType" />
+            <RadioButton fx:id="truck" mnemonicParsing="false" prefWidth="100.0" text="Truck" toggleGroup="$bodyType" />
+            <RadioButton fx:id="SUV" mnemonicParsing="false" prefWidth="100.0" text="SUV" toggleGroup="$bodyType" />
          </children>
       </HBox>
    </children>

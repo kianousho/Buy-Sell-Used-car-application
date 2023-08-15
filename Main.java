@@ -20,11 +20,11 @@ public class Main extends Application{
 
         System.out.println("Read "+carList.size()+" cars");
 
-       /*  carList.add(suv1);
+        carList.add(suv1);
         carList.add(truck1);
         carList.add(sed1);
         carList.add(hatch1);
-        carList.add(mid1); */
+        carList.add(mid1);
 
         carData.writeAllCars(carList);
     }
