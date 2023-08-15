@@ -24,7 +24,7 @@ public class CarsData {
             while(true){
                 Cars car = readCar(ois);
                 System.out.println("Read "+car);
-                carsList.add( car);
+                carsList.add(car);
             }
 
         }catch(EOFException eof){
@@ -75,9 +75,11 @@ public class CarsData {
     }
 
     public Cars readCar(ObjectInputStream ois)  throws IOException, ClassNotFoundException{
-        
             return  ((Cars) ois.readObject());
+    }
 
-        
+    public String toString(ArrayList<Cars> cars){
+        List<String> stringcar = cars.stream().map(object -> Objects.toString(object, null)).toList();
+        return stringcar.toString();
     }
 }
