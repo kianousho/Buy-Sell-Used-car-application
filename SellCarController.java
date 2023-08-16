@@ -52,11 +52,7 @@ public class SellCarController extends CarsData{
     private ToggleGroup bodyType;
 
     @FXML
-    void btnNextPage(ActionEvent event) throws IOException {
-        /*TODO: These are commented out because they generate the NullPointerException
-        and idk how to deal with. You'll see they're also commented out of the other controllers
-        and idk how to get the other controllers to look at the same data or have them communicate the same variables with each other.
-        */ 
+    void btnNextPage(ActionEvent event) throws IOException { 
         double carKM = Double.parseDouble(txtCarKM.getText());
         String carMake = txtCarMake.getText();
         String carModel = txtCarModel.getText();
@@ -78,27 +74,47 @@ public class SellCarController extends CarsData{
             stage.setScene(scene);
             stage.show();
         } else if(hatchback.isSelected()){
-            root = FXMLLoader.load(getClass().getResource("HatchbackAddView.fxml"));
+
+            Hatchback hatch = new Hatchback(carMake, carVin, carModel, carPrice, carYear, carKM, false, false, 4, false, "");
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HatchbackAddView.fxml"));
+            HatchbackAddController hac = new HatchbackAddController();
+            hac.setHatch(hatch);
+            loader.setController(hac);
+            root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } else if(truck.isSelected()) {
-            root = FXMLLoader.load(getClass().getResource("TruckAddView.fxml"));
+
+            Truck truck = new Truck(carMake, carVin, carModel, carPrice, carYear, carKM, false, "", "", false);
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TruckAddView.fxml"));
+            TruckAddController tac = new TruckAddController();
+            tac.setTruck(truck);
+            loader.setController(tac);
+            root = loader.load();
+            
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } else if(SUV.isSelected()) {
-            root = FXMLLoader.load(getClass().getResource("SUVAddView.fxml"));
+            
+            SUV suv = new SUV(carMake, carVin, carModel, carPrice, carYear, carKM, false, "", "");
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SUVAddView.fxml"));
+            SUVAddController suvac = new SUVAddController();
+            suvac.setSUV(suv);
+            loader.setController(suvac);
+            root = loader.load();
+
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
     }
-    
-    // Methods to retrieve items
-    // public void getCarMalke()
-
+  
 }

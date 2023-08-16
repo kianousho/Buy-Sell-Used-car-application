@@ -5,20 +5,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import java.util.*;
 
-public class BuyCarView extends CarsData{
-
-
+public class BuyCarView extends CarsData {
 
     @FXML
     private Label fileContent;
 
     public void initialize() {
-       
-        CarsData carlist = new CarsData();
-        
-        fileContent.setText(carlist.toString(carlist.readAllCars()));
-    }
 
-    
+        CarsData carlist = new CarsData();
+
+        fileContent.setText(carlist.toString(carlist.readAllCars()));
+
+    }
 
 }

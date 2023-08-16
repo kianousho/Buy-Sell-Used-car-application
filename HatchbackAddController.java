@@ -1,16 +1,21 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 public class HatchbackAddController extends SellCarController{
 
-    double carKM = Double.parseDouble(txtCarKM.getText());
-    String carMake = txtCarMake.getText();
-    String carModel = txtCarModel.getText();
-    double carPrice = Double.parseDouble(txtCarPrice.getText());
-    String carVin = txtCarVin.getText();
-    int carYear = Integer.parseInt(txtCarYear.getText());
+    CarsData carsData = new CarsData();
+
+    Hatchback hatch = null;
+
+    public void setHatch(Hatchback hatch){
+        System.out.println("Setting hatch " + hatch);
+        this.hatch=hatch;
+    }
+
+    SellCarController sellcar = new SellCarController();
 
     @FXML
     private RadioButton coupeyes;
@@ -42,10 +47,22 @@ public class HatchbackAddController extends SellCarController{
     @FXML
     private RadioButton hbsmall;
 
+    @FXML 
+    private Label txtValidate;
+
     @FXML
     void addCar(ActionEvent event) {
-        Hatchback userAdd = new Hatchback(carMake, carVin, carModel, carPrice, carYear, carKM, hbCoupe(), hbConv(), hbDoorNum(), hbSports(), hbSisze());
-        carsList.add(userAdd);
+        
+        hatch.setCoupe(hbCoupe());
+        hatch.setConvertible(hbConv());
+        hatch.setDoorNum(hbDoorNum());
+        hatch.setSportsCar(hbSports());
+        hatch.setSize(hbSisze());
+
+        carsData.writeCar(hatch);
+
+        txtValidate.setText("Hatchback is listed for sale!");
+
     }
 
     public boolean hbCoupe(){
