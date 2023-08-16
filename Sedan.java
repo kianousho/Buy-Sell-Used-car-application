@@ -3,7 +3,8 @@ public class Sedan extends MidSizeCars {
     private String trunkSize;
 
     public Sedan(String make, String vinNumber, String model, double price,
-            int year, double mileage, boolean coupe, boolean convertible, int doorNum, boolean sportsCar, String trunkSize) {
+            int year, double mileage, boolean coupe, boolean convertible, int doorNum, boolean sportsCar,
+            String trunkSize) {
         super(make, vinNumber, model, price, year, mileage, coupe, convertible, doorNum);
         this.trunkSize = trunkSize;
         this.sportsCar = sportsCar;
@@ -29,10 +30,9 @@ public class Sedan extends MidSizeCars {
         this.trunkSize = trunkSize;
     }
 
-    public String toString(){
-        return super.toString() + ", Sports Car: " + isSportsCar() + 
-        ", Trunk size: " + getTrunkSize();
+    public String toString() {
+        return super.toString() + ", Sports Car: " + isSportsCar() +
+                ", Trunk size: " + getTrunkSize() + "\n\n\n";
     }
 
 }
-

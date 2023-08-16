@@ -88,19 +88,21 @@ public class Cars implements Serializable {
         this.mileage = mileage;
     }
 
-    public String toString(){
-        return "Make: " + getMake() + ", "+
-        "Model: " + getModel() + ", "+
-        "Price : " + getPrice() + ", "+
-        "VIN: " + getVinNumber() + ", "+
-        "Year: " + getYear() + ", "+
-        "Mileage: " + getMileage();
+    public String toString() {
+        return "Make: " + getMake() + ",  " +
+                "Model: " + getModel() + ",  " +
+                "Price : " + getPrice() + ",  " +
+                "VIN: " + getVinNumber() + ",  " +
+                "Year: " + getYear() + ",  " +
+                "Mileage: " + getMileage();
     }
 
-    /* Create method to parse each car into an object of cars to create an ArrayList  */
-    public Cars parseCar(String values){
-        Object carObject = (Object)values;
-        Cars newCar = (Cars)carObject;
+    /*
+     * Create method to parse each car into an object of cars to create an ArrayList
+     */
+    public Cars parseCar(String values) {
+        Object carObject = (Object) values;
+        Cars newCar = (Cars) carObject;
         return newCar;
     }
 }

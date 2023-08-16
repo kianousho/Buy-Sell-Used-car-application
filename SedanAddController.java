@@ -3,21 +3,31 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
-public class SedanAddController extends SellCarController{
+public class SedanAddController extends SellCarController {
 
-    /* double carKM;
-    String carMake;
-    String carModel;
-    double carPrice;
-    String carVin;
-    int carYear; */
-    // double carKM = Double.parseDouble(txtCarKM.getText());
-    // String carMake = txtCarMake.getText();
-    // String carModel = txtCarModel.getText();
-    // double carPrice = Double.parseDouble(txtCarPrice.getText());
-    // String carVin = txtCarVin.getText();
-    // int carYear = Integer.parseInt(txtCarYear.getText());
+    CarsData carsData = new CarsData();
+
+    Sedan sedan = null;
+
+    public void setSedan(Sedan sedan) {
+        System.out.println("Setting sedan " + sedan);
+        this.sedan = sedan;
+    }
+
+    SellCarController sellcar = new SellCarController();
+
+    public void initialize() {
+
+        // carKM = sedan.getMileage();
+        // double carKM = Double.parseDouble(txtCarKM.getText());
+        // String carMake = txtCarMake.getText();
+        // String carModel = txtCarModel.getText();
+        // double carPrice = Double.parseDouble(txtCarPrice.getText());
+        // String carVin = txtCarVin.getText();
+        // int carYear = Integer.parseInt(txtCarYear.getText());
+    }
 
     @FXML
     private RadioButton coupeyes;
@@ -49,50 +59,80 @@ public class SedanAddController extends SellCarController{
     @FXML
     private RadioButton trunksmall;
 
-    @FXML 
+    @FXML
     private Label txtValidate;
 
     @FXML
+    private ToggleGroup convTg;
+
+    @FXML
+    private ToggleGroup coupeTg;
+
+    @FXML
+    private ToggleGroup sportTg;
+
+    @FXML
+    private ToggleGroup trunkS;
+
+    @FXML
     void addCar(ActionEvent event) {
-        Sedan sedanUser = new Sedan(txtCarMake.getText(), txtCarVin.getText(), txtCarModel.getText(), Double.parseDouble(txtCarPrice.getText()), Integer.parseInt(txtCarYear.getText()), Double.parseDouble(txtCarKM.getText()), sedCoupe(), sedConv(), sedDoorNum(), sedSports(), sedTrunk());
-        carsList.add(sedanUser);
+        // Even when making the variables from SellCarContoller protected, these data
+        // members are null.
+        // Sedan sedanUser = new Sedan(txtCarMake.getText(), txtCarVin.getText(),
+        // txtCarModel.getText(), Double.parseDouble(txtCarPrice.getText()),
+        // Integer.parseInt(txtCarYear.getText()),
+        // Double.parseDouble(txtCarKM.getText()), sedCoupe(), sedConv(), sedDoorNum(),
+        // sedSports(), sedTrunk());
+        sedan.setCoupe(sedCoupe());
+        sedan.setConvertible(sedConv());
+        sedan.setDoorNum(sedDoorNum());
+        sedan.setTrunkSize(sedTrunk());
+        sedan.setSportsCar(sedSports());
+
+        carsData.writeCar(sedan);
+
         txtValidate.setText("Sedan listed for Sale!");
     }
 
-    public boolean sedCoupe(){
-        if(coupeyes.isSelected()){
-            return true;
-        } else {
-            return false;
-        }
-    } 
-
-    public boolean sedConv(){
-        if(convyes.isSelected()){
+    @FXML
+    public boolean sedCoupe() {
+        if (coupeyes.isSelected()) {
             return true;
         } else {
             return false;
         }
     }
 
-    public int sedDoorNum(){
+    @FXML
+    public boolean sedConv() {
+        if (convyes.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @FXML
+    public int sedDoorNum() {
         return Integer.parseInt(txtDoorNum.getText());
     }
 
-    public boolean sedSports(){
-        if(sportyes.isSelected()){
+    @FXML
+    public boolean sedSports() {
+        if (sportyes.isSelected()) {
             return true;
         } else {
             return false;
         }
     }
 
-    public String sedTrunk(){
-        if(trunksmall.isSelected()){
+    @FXML
+    public String sedTrunk() {
+        if (trunksmall.isSelected()) {
             return "Small";
-        } else if(trunkmedium.isSelected()){
+        } else if (trunkmedium.isSelected()) {
             return "Medium";
-        } else{
+        } else {
             return "Large";
         }
     }
